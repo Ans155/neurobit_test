@@ -13,6 +13,14 @@ const useStyles = makeStyles(() => ({
     borderRadius: '8px',
     padding: '20px',
   },
+  positionedText: {
+    position: 'absolute',
+    top: '50px',
+    left: '100px',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    color: '#333333',
+  },
   box1: {
     boxSizing: 'border-box',
     position: 'absolute',
@@ -23,6 +31,12 @@ const useStyles = makeStyles(() => ({
     background: '#FFFFFF',
     border: '2px solid #10A44B',
     borderRadius: '50px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    color: '#333333',
   },
   box2: {
     boxSizing: 'border-box',
@@ -34,6 +48,12 @@ const useStyles = makeStyles(() => ({
     background: '#FFFFFF',
     border: '2px solid #10A44B',
     borderRadius: '50px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    color: '#333333',
   },
   box3: {
     boxSizing: 'border-box',
@@ -45,6 +65,12 @@ const useStyles = makeStyles(() => ({
     background: '#FFFFFF',
     border: '2px solid #10A44B',
     borderRadius: '50px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    color: '#333333',
   },
   line1: {
     position: 'absolute',
@@ -74,14 +100,21 @@ const useStyles = makeStyles(() => ({
 
 const StepperComponent = () => {
   const classes = useStyles();
+  
 
   return (
     <div className={classes.stepperContainer}>
-      <div className={classes.box1}></div>
+      <div className={classes.box1}>
+        <span>1</span>
+      </div>
       <div className={classes.line1}></div>
-      <div className={classes.box2}></div>
+      <div className={classes.box2}>
+      <span>2</span>
+      </div>
       <div className={classes.line2}></div>
-      <div className={classes.box3}></div>
+      <div className={classes.box3}>
+      <span>3</span>
+      </div>
 
     
     </div>
