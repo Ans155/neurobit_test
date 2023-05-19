@@ -3,6 +3,7 @@ import './App.css';
 import SideComponent from './components/sidebar'
 import StepperComponent from './components/stepper'
 import FileUploadComponent from './components/browsefile'
+import FooterComponent from './components/footer'
 import React from 'react';
 import { makeStyles} from '@material-ui/core/styles';
 // import { makeStyles, createTheme, ThemeProvider } from '@material-ui/core/styles';
@@ -26,6 +27,7 @@ const App = () => {
         <SideComponent />
         <StepperComponent />
         <FileUploadComponent />
+        <FooterComponent />
         {/* Add the rest of your page content here */}
       </div>
     // </ThemeProvider>

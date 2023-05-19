@@ -6,17 +6,33 @@ const useStyles = makeStyles(() => ({
   stepperContainer: {
     position: 'absolute',
     width: '1108px',
-    height: '137px',
+    height: '97px',
     left: '356px',
-    top: '120px',
+    top: '80px',
     background: '#FFFFFF',
     borderRadius: '8px',
     padding: '20px',
   },
-  positionedText: {
+  pT1: {
     position: 'absolute',
-    top: '50px',
-    left: '100px',
+    top: '80px',
+    left: '130px',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    color: '#333333',
+  },
+  pT2: {
+    position: 'absolute',
+    top: '80px',
+    left: '555px',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    color: '#333333',
+  },
+  pT3: {
+    position: 'absolute',
+    top: '80px',
+    left: '992px',
     fontSize: '16px',
     fontWeight: 'bold',
     color: '#333333',
@@ -104,14 +120,17 @@ const StepperComponent = () => {
 
   return (
     <div className={classes.stepperContainer}>
+      <span className={classes.pT1}>Upload EDFs </span>
       <div className={classes.box1}>
         <span>1</span>
       </div>
       <div className={classes.line1}></div>
+      <span className={classes.pT2}>Map Channels</span>
       <div className={classes.box2}>
       <span>2</span>
       </div>
       <div className={classes.line2}></div>
+      <span className={classes.pT3}>Upload EDFs </span>
       <div className={classes.box3}>
       <span>3</span>
       </div>
