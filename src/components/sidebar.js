@@ -62,6 +62,26 @@ const useStyles = makeStyles(() => ({
     optionIcon: {
       marginRight: '10px',
     },
+    belowCount: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: '40px',
+      gap: '8px',
+
+      position: 'absolute',
+      width: '160px',
+      height: '75px',
+      left: '22px',
+      top: '520px',
+
+      background: '#02354F',
+/* Shadow-2 */
+
+      boxShadow: '0px 3px 20px 4px rgba(0, 0, 0, 0.04)',
+      borderRadius: '4px',
+    }
   }));
 
 const SideComponent = () => {
@@ -83,6 +103,14 @@ const SideComponent = () => {
       <div className={classes.option}>
         <CreditCardIcon className={classes.optionIcon} />
         Credits
+      </div>
+      <div className={classes.belowCount}>
+        <span style={{fontSize: '27px'}}>
+          1650
+        </span>
+        <span style={{fontSize: '16px'}}>
+          Total Credits available
+        </span>
       </div>
     </div>
   );

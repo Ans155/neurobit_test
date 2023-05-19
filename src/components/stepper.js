@@ -21,6 +21,7 @@ const useStyles = makeStyles(() => ({
     fontWeight: 'bold',
     color: '#333333',
   },
+  
   pT2: {
     position: 'absolute',
     top: '80px',
@@ -53,6 +54,24 @@ const useStyles = makeStyles(() => ({
     fontSize: '16px',
     fontWeight: 'bold',
     color: '#333333',
+  },
+  box1temp: {
+    boxSizing: 'border-box',
+    position: 'absolute',
+    width: '50px',
+    height: '50px',
+    left: '153px',
+    top: '27px',
+    background: '#10A44B;',
+    border: '2px solid #10A44B',
+    borderRadius: '50px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    color: '#333333',
+    
   },
   box2: {
     boxSizing: 'border-box',
@@ -114,17 +133,31 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const StepperComponent = () => {
+const StepperComponent = ({ check }) => {
   const classes = useStyles();
+  const stepperCheck = check === 'true' ? classes.box1temp : classes.box1;
+  const val= check === 'true' ? "✔":"1" ;
   
 
   return (
     <div className={classes.stepperContainer}>
-      <span className={classes.pT1}>Upload EDFs </span>
-      <div className={classes.box1}>
-        <span>1</span>
+      
+      {(check === 'true') ? (
+        <span style={{color:'green'}} className={classes.pT1}>
+          Upload EDFs </span>
+      ) : (
+        <span className={classes.pT1}>
+          Upload EDFs </span>
+      )}
+      <div className={stepperCheck}>
+        <span>{val}</span>
       </div>
-      <div className={classes.line1}></div>
+      {(check === 'true') ? (
+        <div style={{border: '1px solid green'}} className={classes.line1}></div>
+      ) : (
+        <div className={classes.line1}></div>
+      )}
+      
       <span className={classes.pT2}>Map Channels</span>
       <div className={classes.box2}>
       <span>2</span>
