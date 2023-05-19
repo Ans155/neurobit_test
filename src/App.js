@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import SideComponent from './components/sidebar'
+import StepperComponent from './components/stepper'
 
-function App() {
+import React from 'react';
+import { makeStyles} from '@material-ui/core/styles';
+// import { makeStyles, createTheme, ThemeProvider } from '@material-ui/core/styles';
+
+
+// const theme = createTheme();
+
+const useStyles = makeStyles(() => ({
+  pageContainer: {
+    display: 'flex',
+    height: '100vh',
+  },
+}));
+
+const App = () => {
+  const classes = useStyles();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <ThemeProvider theme={theme}>
+      <div className={classes.pageContainer}>
+        <SideComponent />
+        <StepperComponent />
+        {/* Add the rest of your page content here */}
+      </div>
+    // </ThemeProvider>
   );
-}
+};
 
 export default App;
