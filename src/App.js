@@ -1,15 +1,13 @@
-// import logo from './logo.svg';
-import './App.css';
 import SideComponent from './components/sidebar'
 import StepperComponent from './components/stepper'
 import FileUploadComponent from './components/browsefile'
 import FooterComponent from './components/footer'
 import {React, useState} from 'react';
 import { makeStyles} from '@material-ui/core/styles';
+import HorizontalComponent from './components/channeloptions';
+
+import './App.css';
 // import { makeStyles, createTheme, ThemeProvider } from '@material-ui/core/styles';
-
-
-// const theme = createTheme();
 
 const useStyles = makeStyles(() => ({
   pageContainer: {
@@ -17,11 +15,12 @@ const useStyles = makeStyles(() => ({
     height: '100vh',
   },
 }));
-
 const App = () => {
   const classes = useStyles();
   // const [isStepperVisible, setIsStepperVisible] = useState(false);
   const [stepperColor, setStepperColor] = useState('false');
+
+  
 
   const handleSaveClick = () => {
     // setIsStepperVisible(true);
@@ -32,15 +31,30 @@ const App = () => {
     // setIsStepperVisible(true);
     setStepperColor('false');
   };
+  const numbers = [1, 2, 3, 4, 5];
 
   return (
+    
     // <ThemeProvider theme={theme}>
       <div className={classes.pageContainer}>
         <SideComponent />
+        <StepperComponent />
         {/* <StepperComponent /> */}
-        <FileUploadComponent />
+        
+        <FooterComponent />
         <FooterComponent onSaveClick={handleSaveClick} onBackClick={handleBackClick}/>
-        {<StepperComponent check={stepperColor} />}
+        {<StepperComponent check={stepperColor} />
+        }
+        {(stepperColor==='true' )? (
+          <div>
+            {numbers.map((number) => (
+            <HorizontalComponent key={number} />
+          ))}
+            
+          </div>
+        ) : (
+          (<FileUploadComponent />)
+        )}
         {/* Add the rest of your page content here */}
       </div>
     // </ThemeProvider>
@@ -48,3 +62,71 @@ const App = () => {
 };
 
 export default App;
+
+
+// import React, { useState } from 'react';
+// import { makeStyles } from '@material-ui/core/styles';
+
+// const useStyles = makeStyles(() => ({
+//   channelOptionsContainer: {
+//     position: 'absolute',
+//     width: '1508px',
+//     height: '570px',
+//     left: '0',
+//     top: '0',
+//     background: '#FFFFFF',
+//     borderRadius: '5.43313px',
+//     padding: '20px',
+//     display: 'flex',
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//   },
+//   additionalChannelsContainer: {
+//     display: 'flex',
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//     marginLeft: '20px',
+//   },
+// }));
+
+// const ChannelOption = ({ label }) => {
+//   return (
+//     <div>
+//       <label>{label}</label>
+//       <input type="text" />
+//     </div>
+//   );
+// };
+
+// const App = () => {
+//   const classes = useStyles();
+//   const [primaryChannels, setPrimaryChannels] = useState(['']);
+//   const [referenceChannels, setReferenceChannels] = useState(['']);
+
+//   const handleAddChannels = () => {
+//     setPrimaryChannels((prevPrimaryChannels) => [...prevPrimaryChannels, '']);
+//     setReferenceChannels((prevReferenceChannels) => [...prevReferenceChannels, '']);
+//   };
+
+//   return (
+//     <div className={classes.channelOptionsContainer}>
+//       <ChannelOption label="Channel Name" />
+
+//       <div className={classes.additionalChannelsContainer}>
+//         {primaryChannels.map((_, index) => (
+//           <ChannelOption key={index} label="Primary Channel" />
+//         ))}
+//       </div>
+
+//       <div className={classes.additionalChannelsContainer}>
+//         {referenceChannels.map((_, index) => (
+//           <ChannelOption key={index} label="Reference Channel" />
+//         ))}
+//       </div>
+
+//       <button onClick={handleAddChannels}>Add Additional Channels</button>
+//     </div>
+//   );
+// };
+
+// export default App;

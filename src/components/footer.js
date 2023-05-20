@@ -16,6 +16,7 @@ const useStyles = makeStyles(() => ({
     justifyContent: 'flex-end',
     alignItems: 'center',
     padding: '20px',
+    zIndex: '9999',
   },
   bbutton: {
     marginRight: '1100px',
