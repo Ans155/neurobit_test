@@ -1,84 +1,69 @@
-import SideComponent from './components/sidebar'
-import StepperComponent from './components/stepper'
-import FileUploadComponent from './components/browsefile'
-import FooterComponent from './components/footer'
-import {React, useState} from 'react';
-import { makeStyles} from '@material-ui/core/styles';
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+//import { Provider } from 'react-redux'; // Import Provider from react-redux
+//import store from './components/store'; // Import your Redux store
+import SideComponent from './components/sidebar';
+import StepperComponent from './components/stepper';
+import FileUploadComponent from './components/browsefile';
+import FooterComponent from './components/footer';
 import HorizontalComponent from './components/channeloptions';
-import { Provider } from 'react-redux';
-import { ChannelProvider } from './components/context';
-
 import './App.css';
-// import { makeStyles, createTheme, ThemeProvider } from '@material-ui/core/styles';
+import data from './Data_files/schema.json';
+
+import  AppProvider  from './AppContext';
+const channel_names = data.channels;
+
 
 const useStyles = makeStyles(() => ({
-
-  lastHorizontalComponent: {
-    marginBottom: '20px', // Add margin bottom
-    //padding: '200px', // Add padding
-  },
-  pageContainer: {
-    display: 'flex',
-    height: '100vh',
-  },
+  // Your styles here
 }));
+
 const App = () => {
   const classes = useStyles();
-  // const [isStepperVisible, setIsStepperVisible] = useState(false);
   const [stepperColor, setStepperColor] = useState('false');
 
   const handleSaveClick = () => {
-    // setIsStepperVisible(true);
     setStepperColor('true');
   };
 
   const handleBackClick = () => {
-    // setIsStepperVisible(true);
     setStepperColor('false');
   };
+
   const numbers = [1, 2, 3, 4, 5];
 
   return (
-    
-    // <ThemeProvider theme={theme}>
-    <ChannelProvider>
+    <>
+      {/* //{setStepperColor('true')} */}
       <div className={classes.pageContainer}>
+     
         <SideComponent />
         <StepperComponent />
-        {/* <StepperComponent /> */}
-        
-        <FooterComponent />
-        <FooterComponent onSaveClick={handleSaveClick} onBackClick={handleBackClick}/>
-        {<StepperComponent check={stepperColor} />
-        }
-        <div style={{height:'100%'}}>
-        {(stepperColor==='true' )? (
+        <FooterComponent onSaveClick={handleSaveClick} onBackClick={handleBackClick} />
+
+        {stepperColor === 'true' ? (
           <>
-          <div>
-            {numbers.map((number) => (
-              
-            <HorizontalComponent key={number} id={number}/>
-          ))}
-            
-            
-          </div>
-          <div style={{bottom : '0px',height:'120px'}}>
-                <span>
-                  abcdsjbcksd
-                </span>
-          </div>
+             <div>
+              {numbers.map((number, index) => (
+                <AppProvider key={index} identifier={`component_${index}`}>
+                  <HorizontalComponent key ={index} channel_name={channel_names[index]}/>
+                </AppProvider>
+                
+              ))}
+            </div>
+
+            <div style={{ bottom: '0px', height: '120px' }}>
+              <span>abcdsjbcksd</span>
+            </div>
           </>
         ) : (
-          (<FileUploadComponent />)
+          // ('')
+          <FileUploadComponent />
         )}
-        <div style={{height:'150px'}}>
-        Additional div content
+
+        <div style={{ height: '150px' }}>Additional div content</div>
       </div>
-        </div>
-        
-        {/* Add the rest of your page content here */}
-      </div>
-    // </ChannelProvider>
+      </>
   );
 };
 
