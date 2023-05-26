@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AppContext } from '../AppContext';
 
 //import TextField from '@material-ui/core/TextField';
@@ -21,7 +21,6 @@ const HorizontalComponent = ({ channel_name }) => {
     hideChannelsHandler,
   } = useContext(AppContext);
   const originalHeight = 102;
-
   const componentStyle = {
     position: 'relative',
     width: '1148px',
@@ -43,10 +42,12 @@ const HorizontalComponent = ({ channel_name }) => {
   };
   const buttonStyle = {
     position: 'absolute',
-    left: count === 0 ? '900px' : '60px',
-    top: count === 0 ? '30px' : `${count * 72 + 30}px`,
-    borderColor: 'white',
-    color: 'default',
+    left: count === 1 ? '900px' : '60px',
+    top: count === 1 ? '30px' : `${count * 72 + 30}px`,
+    // borderColor: '#FFFFFF',
+    background:count === 1 ? '#FFFFFF':'#CDCDCD',
+    border:count === 1 ? 'blue':'#CDCDCD',
+    color: 'blue',
   };
 
   return (
@@ -93,7 +94,7 @@ fontSize: '14px'}}>
                   style={{ position: 'absolute', marginRight: '16px', left: '350px', top: `${index * 72 + 20}px` }}
                 >
                   <MenuItem value="" disabled>
-                    Primary Channel
+                    Select Channel
                   </MenuItem>
                   <MenuItem value="option1">Option 1</MenuItem>
                   <MenuItem value="option2">Option 2</MenuItem>
@@ -109,14 +110,13 @@ fontSize: '14px'}}>
                   style={{ position: 'absolute', marginRight: '16px', left: '650px', top: `${index * 72 + 20}px` }}
                 >
                   <MenuItem value="" disabled>
-                    Reference Channel
+                  Select Channel
                   </MenuItem>
                   <MenuItem value="option1">Option 1</MenuItem>
                   <MenuItem value="option2">Option 2</MenuItem>
                   <MenuItem value="option3">Option 3</MenuItem>
                   
                 </Select>
-
                 {!hideChannels && (
                   <Button variant="contained" onClick={addChannel} style={buttonStyle}>
                     + Add Backup Channels
@@ -133,7 +133,7 @@ fontSize: '14px'}}>
                   style={{ position: 'absolute', marginRight: '16px', left: '350px', top: `${index * 72 + 30}px` }}
                 >
                   <MenuItem value="" disabled>
-                    Primary Channel
+                  Select Channel
                   </MenuItem>
                   <MenuItem value="option1">Option 1</MenuItem>
                   <MenuItem value="option2">Option 2</MenuItem>
@@ -149,7 +149,7 @@ fontSize: '14px'}}>
                   style={{ position: 'absolute', marginRight: '16px', left: '650px', top: `${index * 72 + 30}px` }}
                 >
                   <MenuItem value="" disabled>
-                    Reference Channel
+                  Select Channel
                   </MenuItem>
                   <MenuItem value="option1">Option 1</MenuItem>
                   <MenuItem value="option2">Option 2</MenuItem>
@@ -167,12 +167,12 @@ fontSize: '14px'}}>
                       top: `${index * 72 + 30}px`,
                       border: 'none',
                       color: 'red',
-                      background: 'white',
+                      background: '#CDCDCD',
                       textTransform: 'none',
                     }}
                   >
                     <span style={{ color: 'red', textTransform: 'capitalize' }}>
-                      <DeleteForeverOutlinedIcon style={{ color: 'red', textAlign: 'center' }} /> Delete
+                      <DeleteForeverOutlinedIcon style={{ color: 'red' }} /> Delete
                     </span>
                   </Button>
                 )}
@@ -181,15 +181,15 @@ fontSize: '14px'}}>
           </div>
         ))}
 
-        {count > 0 && (
+        {count > 1 && (
           <>
           
           <Button
             variant="contained"
             onClick={hideChannelsHandler}
-            style={{ position: 'absolute', left: '900px', top: '20px' }}
+            style={{ position: 'absolute', left: '900px', top: '20px',background:'#FFFFFF',color:'blue'}}
           >
-            {hideChannels ? `View backup channels (${count})` : `Hide backup channels (${count})`}
+            {hideChannels ? `View backup channels (${count-1})` : `Hide backup channels (${count-1})`}
           </Button>
           </>
         )}

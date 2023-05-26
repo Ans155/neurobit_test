@@ -7,12 +7,42 @@ import StepperComponent from './components/stepper';
 import FileUploadComponent from './components/browsefile';
 import FooterComponent from './components/footer';
 import HorizontalComponent from './components/channeloptions';
+import MappingComponent from'./components/mapping'
 import './App.css';
-import data from './Data_files/schema.json';
+//import data from './Data_files/schema.json';
 
 import  AppProvider  from './AppContext';
-const channel_names = data.channels;
 
+const data ={
+  "formats": ["json", "csv"],
+    "version": 1,
+    "channels": [
+      "channel-1",
+      "channel-2",
+      "channel-3",
+      "channel-4",
+      "channel-5",
+      "channel-6",
+      "channel-7",
+      "channel-8",
+      "channel-9",
+      "channel-9",
+      "channel-10"
+    ],
+    "optionals": [
+      {
+        "optional1": true,
+        "optional2": true
+      }
+    ]
+} 
+const channel_names = data.channels;
+const optionals = data.optionals[0]; // Accessing the first element of the optionals array
+
+const optionalKeys = Object.keys(optionals); // Getting the keys of the optional object
+
+//console.log(optionalKeys);
+// optionalKeys[0]=false;
 
 const useStyles = makeStyles(() => ({
   // Your styles here
@@ -20,48 +50,146 @@ const useStyles = makeStyles(() => ({
 
 const App = () => {
   const classes = useStyles();
-  const [stepperColor, setStepperColor] = useState('false');
+  const [stepperColor, setStepperColor] = useState(0);
 
   const handleSaveClick = () => {
-    setStepperColor('true');
+    setStepperColor(stepperColor => {
+      // Limit the counter to a maximum value of 1
+      if (stepperColor >=2) {
+        return stepperColor;
+      } else {
+        return stepperColor + 1;
+      }
+    });
   };
 
   const handleBackClick = () => {
-    setStepperColor('false');
+    setStepperColor(stepperColor => {
+      // Limit the counter to a min value of -1
+      if (stepperColor <= 0) {
+        return stepperColor;
+      } else {
+        return stepperColor - 1;
+      }
+    });
+  };
+  const componentStyle = {
+    position: 'relative',
+    width: '1148px',
+    left: '350px',
+    borderRadius: '5px 5px 0px 0px',
+    height: '72px',
+    background: '#FFFFFF',
+    marginTop:'90px',
+    marginBottom:'200px',
+    
   };
 
-  const numbers = [1, 2, 3, 4, 5];
+  const numbers = [0,1, 2, 3, 4, 5, 6, 7 ,8 ,9,10];
+  const sub_numbers = [0,1, 2, 3, 4, 5, 6, 7 ,8 ,9,10];
 
   return (
     <>
       {/* //{setStepperColor('true')} */}
-      <div className={classes.pageContainer}>
-     
+      <div className={classes.pageContainer} style={{ overflowX: 'hidden' }}>
+        
         <SideComponent />
-        <StepperComponent />
+        <StepperComponent check={stepperColor}/>
         <FooterComponent onSaveClick={handleSaveClick} onBackClick={handleBackClick} />
-
-        {stepperColor === 'true' ? (
+        {stepperColor === 0 && (
+          <div>
+            <FileUploadComponent />
+            </div>
+        )}
+        {stepperColor === 1 && (
           <>
              <div>
               {numbers.map((number, index) => (
                 <AppProvider key={index} identifier={`component_${index}`}>
+                  {(index===10)? (
+                    <>
+                    <div style={{marginBottom:'320px'}}>
+                    <HorizontalComponent key ={index} channel_name={channel_names[index]}/>
+                    </div>
+                    <div style={componentStyle}>
+                    <span style={{
+                      position:'relative', left:'35px', top:'20px',fontStyle: 'normal',fontWeight: '500',fontSize: '16px'}}>
+                        Additional Settings
+                        </span>
+                        <div style={{position:'relative',width:'700px', left:'350px',top:'0px',fontStyle: 'normal',fontWeight: '500',fontSize: '14px'}}>
+                        <label>
+                          <input
+                            type="checkbox"
+                            
+                          />
+                          {optionalKeys[0]}
+                      </label>
+                        </div>
+                        <div style={{position:'absolute',width:'700px', left:'650px',top:'23px',fontStyle: 'normal',fontWeight: '500',fontSize: '14px'}}>
+                        <label>
+                          <input
+                            type="checkbox"
+                            
+                          />
+                          {optionalKeys[1]}
+                      </label>
+                        </div>
+                        
+                  </div>
+                  </>
+
+                  ) : (
+                    <div>
                   <HorizontalComponent key ={index} channel_name={channel_names[index]}/>
+                  </div>
+                  )}
+                  
+                  
                 </AppProvider>
                 
               ))}
-            </div>
-
-            <div style={{ bottom: '0px', height: '120px' }}>
-              <span>abcdsjbcksd</span>
-            </div>
+            </div>    
           </>
-        ) : (
-          // ('')
-          <FileUploadComponent />
         )}
+        {stepperColor === 2 && (
+          <div style={{overflowY: 'hidden' }}>
 
-        <div style={{ height: '150px' }}>Additional div content</div>
+
+          {sub_numbers.map((sub_number, index) => (
+            <>
+            {
+              
+              (() => {
+                let localStorageKey = `channels_component_${index}`;
+                let savedChannels = localStorage.getItem(localStorageKey);
+                //console.log(JSON.parse(savedChannels));
+                return (
+                  <>
+                  {(index === 10) ? (
+                    
+                      <div key ={index} style={{marginBottom:'500px'}}>
+              
+              <MappingComponent array={savedChannels}/>
+          </div>
+                   
+
+                  ) : (
+                    <div key ={index}>
+              
+                    <MappingComponent array={savedChannels}/>
+                </div>
+                  )}
+                 </> 
+                );
+              })()
+            }
+            
+             </>
+          ))}
+          </div>
+          
+        
+        )}       
       </div>
       </>
   );

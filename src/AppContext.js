@@ -7,6 +7,7 @@ export function AppProvider({ identifier, children }) {
 
   const [channels, setChannels] = useState(() => {
     const savedChannels = localStorage.getItem(localStorageKey);
+    //console.log(savedChannels);
     return savedChannels ? JSON.parse(savedChannels) : [{ channelName: '', primary: '', reference: '' }];
   });
 

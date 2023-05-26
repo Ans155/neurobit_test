@@ -135,14 +135,14 @@ const useStyles = makeStyles(() => ({
 
 const StepperComponent = ({ check }) => {
   const classes = useStyles();
-  const stepperCheck = check === 'true' ? classes.box1temp : classes.box1;
-  const val= check === 'true' ? "✔":"1" ;
+  const stepperCheck = check === 1 ? classes.box1temp : classes.box1;
+  const val= check === 1 ? "✔":"1" ;
   
 
   return (
     <div className={classes.stepperContainer}>
       
-      {(check === 'true') ? (
+      {(check === 1) ? (
         <span style={{color:'green'}} className={classes.pT1}>
           Upload EDFs </span>
       ) : (
@@ -152,7 +152,7 @@ const StepperComponent = ({ check }) => {
       <div className={stepperCheck}>
         <span>{val}</span>
       </div>
-      {(check === 'true') ? (
+      {(check === 1) ? (
         <div style={{border: '1px solid green'}} className={classes.line1}></div>
       ) : (
         <div className={classes.line1}></div>
