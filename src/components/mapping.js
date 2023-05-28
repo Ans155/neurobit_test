@@ -1,10 +1,10 @@
 import React from 'react';
-
-const MappingComponent = ({array}) => {
+import Button from '@material-ui/core/Button';
+const MappingComponent = ({array, c_name, onBackClick, stepperColor}) => {
 
   array=JSON.parse(array);
   console.log(array[0].primary);
-  const numbers = [0,1, 2, 3, 4, 5, 6, 7 ,8 ,9];
+  // const numbers = [0,1, 2, 3, 4, 5, 6, 7 ,8 ,9];
   const linestyle ={
     position: 'relative',
     width: '0px',
@@ -77,16 +77,16 @@ fontSize: '14px'}}>
      <span style={{position:'absolute', left:'320px', top:'15px', fontStyle: 'normal',
 fontWeight:'500',
 fontSize: '14px'}}>
-      Primary Channel (default select)
+      Primary Channel
      </span>
      <span style={{position:'absolute', left:'620px', top:'15px', fontStyle: 'normal',
 fontWeight:'500',
 fontSize: '14px'}}>
-      Reference Channel (default N/A)
+      Reference Channel
      </span>
       </div>
     <div style={componentStyle}>
-    
+        
         <div style={linestyle}></div>
         <div style={linestyle2}> </div>
         <div style={linestyle3}></div>
@@ -94,15 +94,28 @@ fontSize: '14px'}}>
         
         {array[0].primary}
         </div> */}
+        <div style={{position:'absolute', top:'20px', left:'40px'}}>
+          {c_name}
+        </div>
+        <Button 
+      variant="contained"
+      color="default"
+      onClick={onBackClick}
+      disabled={stepperColor === 3}
+      style={{position:'absolute',top:'20px',left:'900px', background:'#FFFFFF', border: '1px solid blue', opacity: stepperColor=== 3 ? '0.2' : '1'}}
+      >
+        <span style={{color:'blue', textTransform: 'none'}}>
+        Edit Channel
+        </span>
         
-        
+      </Button>
         <div>
           {Array.from({ length: count }, (_, index) => (
 
             <div>
               <div style={{position:'absolute',left:'370px',top:`${index *52 + 22}px`}}>
         
-              {array[index].primary==""?
+              {array[index].primary===""?
               (
                 <>
                 {
@@ -110,12 +123,19 @@ fontSize: '14px'}}>
                     ('')
 
                   ) : (
+                    <>
                     <div>
                     {
                       (index===1) ? (
+                        <>
                         <span style={{position:'absolute', left:'-370px', top:'-30px',color:'#EBEBEB',fontSize:'20px'}}>
                         ___________________________________________________________________
                       </span>
+                        <div style={{position:'absolute', top:'5px', left:'-330px', color:'#8A8A8A'}}>
+                       Backup Channels
+                     </div>
+                        </>
+                        
                       ) : (
                         <span style={{position:'absolute', left:'-120px', top:'-30px',color:'#EBEBEB',fontSize:'20px'}}>
                     ___________________________________
@@ -123,11 +143,13 @@ fontSize: '14px'}}>
                       )
                     }
                     </div>
+                    
+                     </>
                   )
                 }
                 
-                <span>
-                  not selected
+                <span style={{color: index===0 ? '' : '#8A8A8A'}}>
+                  Not Selected
                 </span>
                 </>
               ):(
@@ -140,9 +162,14 @@ fontSize: '14px'}}>
                     <div>
                     {
                       (index===1) ? (
+                        <>
                         <span style={{position:'absolute', left:'-370px', top:'-30px',color:'#EBEBEB',fontSize:'20px'}}>
                         ___________________________________________________________________
                       </span>
+                      <div style={{position:'absolute', top:'5px', left:'-330px', color:'#8A8A8A'}}>
+                       Backup Channels
+                     </div>
+                     </>
                       ) : (
                         <span style={{position:'absolute', left:'-120px', top:'-30px',color:'#EBEBEB',fontSize:'20px'}}>
                     ___________________________________
@@ -152,15 +179,16 @@ fontSize: '14px'}}>
                     </div>
                   )
                 }
-                <span>
+                <span style={{color: index===0 ? '' : '#8A8A8A'}}>
                   {array[index].primary}
                 </span>
+               
                 </>
               )}
               </div>
               <div style={{position:'absolute',left:'650px',top:`${index *52 + 22}px`}}>
         
-              {array[index].reference==""?
+              {array[index].reference===""?
               (
                 <>
                 {
@@ -174,8 +202,10 @@ fontSize: '14px'}}>
                   </span>
                   )
                 }
-                <span>
-                  NULL
+                <span style={{color: index===0 ? '' : '#8A8A8A'}}>
+                  {index===0 ?(
+                    ('N/A')
+                  ) : ('NULL')}
                 </span>
                 </>
               ):(
@@ -190,7 +220,7 @@ fontSize: '14px'}}>
                   </span>
                   )
                 }
-                <span>
+                <span style={{color: index===0 ? '' : '#8A8A8A'}}>
                   {array[index].reference}
                 </span>
                 </>

@@ -1,9 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import { PlayCircleOutline } from '@material-ui/icons';
+import WidgetsOutlinedIcon from '@mui/icons-material/WidgetsOutlined';
 import CreditCardIcon from '@material-ui/icons/CreditCard';
-
+import NoteAddIcon from '@mui/icons-material/NoteAdd';
 const useStyles = makeStyles(() => ({
     side: {
         position: 'fixed',
@@ -93,11 +92,11 @@ const SideComponent = () => {
       <div className={classes.line}></div>
       {/* {<div className={classes.box}></div>} */}
       <div className={classes.option}>
-        <DashboardIcon className={classes.optionIcon} />
+        <WidgetsOutlinedIcon className={classes.optionIcon} />
         Dashboard
       </div>
       <div className={classes.option}>
-      <PlayCircleOutline className={classes.optionIcon} />
+      <NoteAddIcon className={classes.optionIcon} />
         Montages
       </div>
       <div className={classes.option}>

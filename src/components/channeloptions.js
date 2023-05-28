@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext} from 'react';
 import { AppContext } from '../AppContext';
 
 //import TextField from '@material-ui/core/TextField';
@@ -42,12 +42,14 @@ const HorizontalComponent = ({ channel_name }) => {
   };
   const buttonStyle = {
     position: 'absolute',
-    left: count === 1 ? '900px' : '60px',
+    left: count === 1 ? '900px' : '350px',
     top: count === 1 ? '30px' : `${count * 72 + 30}px`,
     // borderColor: '#FFFFFF',
     background:count === 1 ? '#FFFFFF':'#CDCDCD',
-    border:count === 1 ? 'blue':'#CDCDCD',
+    border:count === 1 ? '1px solid blue':'#CDCDCD',
     color: 'blue',
+    fontSize:count === 1? '14px' :'13px',
+    textTransform: 'none',
   };
 
   return (
@@ -118,7 +120,7 @@ fontSize: '14px'}}>
                   
                 </Select>
                 {!hideChannels && (
-                  <Button variant="contained" onClick={addChannel} style={buttonStyle}>
+                  <Button variant = {(count===1) ? "contained" : "text"} onClick={addChannel} style={buttonStyle}>
                     + Add Backup Channels
                   </Button>
                 )}
@@ -171,8 +173,8 @@ fontSize: '14px'}}>
                       textTransform: 'none',
                     }}
                   >
-                    <span style={{ color: 'red', textTransform: 'capitalize' }}>
-                      <DeleteForeverOutlinedIcon style={{ color: 'red' }} /> Delete
+                    <span style={{ position:'relative',color: 'red', textTransform: 'capitalize' }}>
+                      <DeleteForeverOutlinedIcon style={{position:'relative', top:'6px', color: 'red' }} /> Delete
                     </span>
                   </Button>
                 )}
@@ -185,9 +187,9 @@ fontSize: '14px'}}>
           <>
           
           <Button
-            variant="contained"
+            variant="text"
             onClick={hideChannelsHandler}
-            style={{ position: 'absolute', left: '900px', top: '20px',background:'#FFFFFF',color:'blue'}}
+            style={{ position: 'absolute', left: '900px', top: '20px',background:'#FFFFFF',color:'blue',textTransform: 'none',fontSize:'16px'}}
           >
             {hideChannels ? `View backup channels (${count-1})` : `Hide backup channels (${count-1})`}
           </Button>
