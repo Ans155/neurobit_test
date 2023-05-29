@@ -98,9 +98,18 @@ fontSize: '14px'}}>
                   <MenuItem value="" disabled>
                     Select Channel
                   </MenuItem>
-                  <MenuItem value="option1">Option 1</MenuItem>
-                  <MenuItem value="option2">Option 2</MenuItem>
-                  <MenuItem value="option3">Option 3</MenuItem>
+                  <MenuItem value="option1">C3</MenuItem>
+                  <MenuItem value="option2">C3:A2</MenuItem>
+                  <MenuItem value="option3">C4</MenuItem>
+                  <MenuItem value="option4">C4:A2</MenuItem>
+                  <MenuItem value="option5">C5</MenuItem>
+                  <MenuItem value="option6">C5:A2</MenuItem>
+                  <MenuItem value="option7">EOGL</MenuItem>
+                  <MenuItem value="option8">EOGR</MenuItem>
+                  <MenuItem value="option9">EMG</MenuItem>
+                  <MenuItem value="option10">C4</MenuItem>
+                  <MenuItem value="option11">C4:A1</MenuItem>
+                  <MenuItem value="option12">C3:A1</MenuItem>
                   
                 </Select>
 
@@ -114,9 +123,18 @@ fontSize: '14px'}}>
                   <MenuItem value="" disabled>
                   Select Channel
                   </MenuItem>
-                  <MenuItem value="option1">Option 1</MenuItem>
-                  <MenuItem value="option2">Option 2</MenuItem>
-                  <MenuItem value="option3">Option 3</MenuItem>
+                  <MenuItem value="option1">C3</MenuItem>
+                  <MenuItem value="option2">C3:A2</MenuItem>
+                  <MenuItem value="option3">C4</MenuItem>
+                  <MenuItem value="option4">C4:A2</MenuItem>
+                  <MenuItem value="option5">C5</MenuItem>
+                  <MenuItem value="option6">C5:A2</MenuItem>
+                  <MenuItem value="option7">EOGL</MenuItem>
+                  <MenuItem value="option8">EOGR</MenuItem>
+                  <MenuItem value="option9">EMG</MenuItem>
+                  <MenuItem value="option10">C4</MenuItem>
+                  <MenuItem value="option11">C4:A1</MenuItem>
+                  <MenuItem value="option12">C3:A1</MenuItem>
                   
                 </Select>
                 {!hideChannels && (
@@ -137,9 +155,18 @@ fontSize: '14px'}}>
                   <MenuItem value="" disabled>
                   Select Channel
                   </MenuItem>
-                  <MenuItem value="option1">Option 1</MenuItem>
-                  <MenuItem value="option2">Option 2</MenuItem>
-                  <MenuItem value="option3">Option 3</MenuItem>
+                  <MenuItem value="option1">C3</MenuItem>
+                  <MenuItem value="option2">C3:A2</MenuItem>
+                  <MenuItem value="option3">C4</MenuItem>
+                  <MenuItem value="option4">C4:A2</MenuItem>
+                  <MenuItem value="option5">C5</MenuItem>
+                  <MenuItem value="option6">C5:A2</MenuItem>
+                  <MenuItem value="option7">EOGL</MenuItem>
+                  <MenuItem value="option8">EOGR</MenuItem>
+                  <MenuItem value="option9">EMG</MenuItem>
+                  <MenuItem value="option10">C4</MenuItem>
+                  <MenuItem value="option11">C4:A1</MenuItem>
+                  <MenuItem value="option12">C3:A1</MenuItem>
                   
                 </Select>
 
@@ -153,9 +180,18 @@ fontSize: '14px'}}>
                   <MenuItem value="" disabled>
                   Select Channel
                   </MenuItem>
-                  <MenuItem value="option1">Option 1</MenuItem>
-                  <MenuItem value="option2">Option 2</MenuItem>
-                  <MenuItem value="option3">Option 3</MenuItem>
+                  <MenuItem value="option1">C3</MenuItem>
+                  <MenuItem value="option2">C3:A2</MenuItem>
+                  <MenuItem value="option3">C4</MenuItem>
+                  <MenuItem value="option4">C4:A2</MenuItem>
+                  <MenuItem value="option5">C5</MenuItem>
+                  <MenuItem value="option6">C5:A2</MenuItem>
+                  <MenuItem value="option7">EOGL</MenuItem>
+                  <MenuItem value="option8">EOGR</MenuItem>
+                  <MenuItem value="option9">EMG</MenuItem>
+                  <MenuItem value="option10">C4</MenuItem>
+                  <MenuItem value="option11">C4:A1</MenuItem>
+                  <MenuItem value="option12">C3:A1</MenuItem>
                   
                 </Select>
 
