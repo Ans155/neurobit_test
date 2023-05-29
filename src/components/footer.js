@@ -52,7 +52,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const FooterComponent = ({ onSaveClick, onBackClick,count}) => {
+const FooterComponent = ({ onSaveClick, onBackClick,count , onCancelClick}) => {
   const classes = useStyles();
 //   const [isSaveClicked, setIsSaveClicked] = useState(false);
 
@@ -64,7 +64,8 @@ const FooterComponent = ({ onSaveClick, onBackClick,count}) => {
     <div className={classes.footerContainer}>
       <Button 
       variant="contained"
-      color="default"
+      disabled={count === 3}
+      style={{opacity: count=== 3 ? '0.6' : '1'}}
       className={classes.bbutton}
       onClick={onBackClick}
       >
@@ -74,6 +75,7 @@ const FooterComponent = ({ onSaveClick, onBackClick,count}) => {
         variant="text"
         color="default"
         className={`${classes.cbutton} ${classes.secondButton}`}
+        onClick={onCancelClick}
       >
         Cancel Montage
       </Button>

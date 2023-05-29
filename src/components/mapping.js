@@ -94,7 +94,7 @@ fontSize: '14px'}}>
         
         {array[0].primary}
         </div> */}
-        <div style={{position:'absolute', top:'20px', left:'40px'}}>
+        <div style={{position:'absolute', top:'20px', left:'40px', fontWeight:'500'}}>
           {c_name}
         </div>
         <Button 
@@ -131,7 +131,7 @@ fontSize: '14px'}}>
                         <span style={{position:'absolute', left:'-370px', top:'-30px',color:'#EBEBEB',fontSize:'20px'}}>
                         ___________________________________________________________________
                       </span>
-                        <div style={{position:'absolute', top:'5px', left:'-330px', color:'#8A8A8A'}}>
+                        <div style={{position:'absolute', top:'5px', left:'-330px', color:'#8A8A8A', fontWeight:'500'}}>
                        Backup Channels
                      </div>
                         </>
@@ -148,7 +148,7 @@ fontSize: '14px'}}>
                   )
                 }
                 
-                <span style={{color: index===0 ? '' : '#8A8A8A'}}>
+                <span style={{color: index===0 ? '' : '#8A8A8A', fontWeight:'500'}}>
                   Not Selected
                 </span>
                 </>
@@ -166,7 +166,7 @@ fontSize: '14px'}}>
                         <span style={{position:'absolute', left:'-370px', top:'-30px',color:'#EBEBEB',fontSize:'20px'}}>
                         ___________________________________________________________________
                       </span>
-                      <div style={{position:'absolute', top:'5px', left:'-330px', color:'#8A8A8A'}}>
+                      <div style={{position:'absolute', top:'5px', left:'-330px', color:'#8A8A8A', fontWeight:'500'}}>
                        Backup Channels
                      </div>
                      </>
@@ -179,7 +179,7 @@ fontSize: '14px'}}>
                     </div>
                   )
                 }
-                <span style={{color: index===0 ? '' : '#8A8A8A'}}>
+                <span style={{color: index===0 ? '' : '#8A8A8A', fontWeight:'500'}}>
                   {array[index].primary}
                 </span>
                
@@ -202,7 +202,7 @@ fontSize: '14px'}}>
                   </span>
                   )
                 }
-                <span style={{color: index===0 ? '' : '#8A8A8A'}}>
+                <span style={{color: index===0 ? '' : '#8A8A8A', fontWeight:'500'}}>
                   {index===0 ?(
                     ('N/A')
                   ) : ('NULL')}
@@ -220,7 +220,7 @@ fontSize: '14px'}}>
                   </span>
                   )
                 }
-                <span style={{color: index===0 ? '' : '#8A8A8A'}}>
+                <span style={{color: index===0 ? '' : '#8A8A8A', fontWeight:'500'}}>
                   {array[index].reference}
                 </span>
                 </>

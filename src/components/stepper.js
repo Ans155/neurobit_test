@@ -180,11 +180,29 @@ const StepperComponent = ({ check }) => {
       <span>2</span>
       </div>
       <div className={classes.line2}></div> */}
-      <span className={classes.pT3}>Save & Preview </span>
-      <div className={classes.box3}>
-      <span>3</span>
-      </div>
+      {(check >= 3) ? (
+        <span style={{color:'green'}} className={classes.pT3}>
+          Save & Preview </span>
+      ) : (
+        <span className={classes.pT3}>
+          Save & Preview </span>
+      )}
+      <div className={classes.box3} style={{background: check===3 ? '#10A44B' : '#FFFFFF'}}>
+      {check===3 ?(
+          
+          <CheckOutlinedIcon />
+          
 
+      ) : (
+        <span>
+        3
+        </span>
+      )}
+      </div>
+      
+
+
+      
     
     </div>
   );
